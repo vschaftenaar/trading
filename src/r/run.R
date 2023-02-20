@@ -70,8 +70,7 @@ xgbModel$sell <- xgboost::xgboost(
 pred$buy_pred   <-  predict(xgbModel$buy,  as.matrix(xgb.test))
 pred$sell_pred  <-  predict(xgbModel$sell, as.matrix(xgb.test))
 
-chk.pair <- 'xvg_usd'
-
+chk.pair <- 'btc_usd'
 
 
 plot(pred[pair==chk.pair,close]~ pred[pair==chk.pair,dt],type='l',frame=F,lwd=1.5,log='y')
