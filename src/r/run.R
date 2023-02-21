@@ -12,10 +12,9 @@ pairs <- as.vector(unlist(data.table::fread(file='./data/pairs.txt',header = F))
 sell <- 'sell'
 buy  <- 'buy'
 x <- c(
-  'prc.change','volatility'
+   'prc.change','volatility'
   ,'ema01.close','ema02.close','ema03.close','ema04.close'
   ,'ema04.ema1','ema04.ema2','ema04.ema3'
-  ,'ema01.vol','ema02.vol','ema03.vol','ema04.vol'
   ,'ema04.ema1.vol','ema04.ema2.vol','ema04.ema3.vol'
   ,'ema01.current.vol','ema02.current.vol','ema03.current.vol','ema04.current.vol'
   ,'rsi01','rsi02','rsi03','rsi04','rsi05','rsi06'
