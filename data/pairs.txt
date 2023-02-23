@@ -3,6 +3,16 @@ doge_usd
 dot_usd
 eth_usd
 ltc_usd
+ada_usd
+link_usd
+xlm_usd
+eos_usd
+neo_usd
+dash_usd
+zec_usd
+bch_usd
+sc_usd
+dgb_usd
 sol_usd
 trx_usd
 xmr_usd
