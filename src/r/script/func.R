@@ -66,7 +66,7 @@ get.data <- function(coin,value,sell,buy,x){
   
   tmp <- tmp[!is.na(ema04)]
   
-  nSplit <- ceiling(.70*nrow(tmp))
+  nSplit <- ceiling(.80*nrow(tmp))
    
   model.data <- list(
      xgb.train  = head(tmp[,..x], nSplit)
@@ -110,4 +110,13 @@ localHighLow <- function(close,window=28){
   tmp[,buy :=ifelse(localLow> 0,1,0)]
   tmp[,sell:=ifelse(localHigh>0,1,0)]
   return(tmp[,c('buy','sell')])
+}
+
+
+plt.result <- function(plot.pair='btc_usd'){
+  plot(pred[pair==plot.pair,close]~ pred[pair==plot.pair,dt],type='l',frame=F,lwd=1.5,log='y',xlab='',ylab='',main=gsub('_',' / ',plot.pair))
+  par(new=T)
+  barplot(pred[pair==plot.pair,sell_pred],col='#D35F8060',xlab='',ylab='',axes=F,border='#D35F8060')
+  par(new=T)
+  barplot(pred[pair==plot.pair,buy_pred] ,col='#78b59460',xlab='',ylab='',axes=F,border='#78b59460')
 }

@@ -1,6 +1,7 @@
 options(scipen = 999)
 
 source('./src/r/script/func.r')
+library(shiny)
 
 db <- list()
 pairs <- as.vector(unlist(data.table::fread(file='./data/pairs.txt',header = F)))
@@ -69,11 +70,11 @@ xgbModel$sell <- xgboost::xgboost(
 pred$buy_pred   <-  predict(xgbModel$buy,  as.matrix(xgb.test))
 pred$sell_pred  <-  predict(xgbModel$sell, as.matrix(xgb.test))
 
-chk.pair <- 'btc_usd'
 
+ipPort=sample(c(1000:65535))[1]
 
-plot(pred[pair==chk.pair,close]~ pred[pair==chk.pair,dt],type='l',frame=F,lwd=1.5,log='y')
-par(new=T)
-barplot(pred[pair==chk.pair,sell_pred],col='#D35F8060',xlab='',ylab='',axes=F,border='#D35F8060')
-par(new=T)
-barplot(pred[pair==chk.pair,buy_pred] ,col='#78b59460',xlab='',ylab='',axes=F,border='#78b59460')
+ip <- '127.0.0.1' #local host
+
+# run app -----------------------------------------------------------------
+runApp(appDir = './src/r/script/',port = ipPort,launch.browser = shell(paste0('start msedge --app=http://',ip,':',ipPort)))
+getwd()
