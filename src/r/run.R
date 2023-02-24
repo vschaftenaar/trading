@@ -77,4 +77,3 @@ ip <- '127.0.0.1' #local host
 
 # run app -----------------------------------------------------------------
 runApp(appDir = './src/r/script/',port = ipPort,launch.browser = shell(paste0('start msedge --app=http://',ip,':',ipPort)))
-getwd()
