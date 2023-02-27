@@ -1,7 +1,7 @@
 options(scipen = 999)
-
-source('./src/r/script/func.r')
 library(shiny)
+source('./src/r/script/func.r')
+
 
 db <- list()
 pairs <- as.vector(unlist(data.table::fread(file='./data/pairs.txt',header = F)))
